@@ -19,7 +19,7 @@ render(){
  
   return(
     <div className="container">
-        <WeatherLocation/>
+        <WeatherLocation city="London"/>
     </div>
   )
 }
