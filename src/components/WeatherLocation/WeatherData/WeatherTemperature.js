@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import WeatherIcons from 'react-weathericons';
-import {CLOUD , CLOUDY, SUN ,RAIN ,SNOW , WINDY } from './../../../constants/weathers';
+import {THUNDER, DRIZZLE, SUN ,RAIN ,SNOW , WINDY, CLOUDY } from './../../../constants/weathers';
 import './styles.css';
 
 
 const icons ={
     [SUN] : "day-sunny",
-    [CLOUD]: "cloud",
     [CLOUDY]: "cloudy",
     [RAIN]: "rain",
     [SNOW]: "snow",
-    [WINDY]: "windy"
+    [WINDY]: "windy",
+    [THUNDER]: "day-thunderstore",
+    [DRIZZLE]: "day-showers",
 };
 
 const getWeatherIcon = (weatherState) => {

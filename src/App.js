@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import WeatherLocation from './components/WeatherLocation';
+import LocationList from './components/LocationList';
 
 
 
@@ -19,7 +19,7 @@ render(){
  
   return(
     <div className="container">
-        <WeatherLocation city="London"/>
+        <LocationList/>
     </div>
   )
 }
