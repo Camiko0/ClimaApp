@@ -52,7 +52,7 @@ render(){
         <Col xs={12} md={6}>
           <Paper elevation = {4}> 
             <div className="details">
-                <ForecastExtended city={city}/>
+                 {city && <ForecastExtended city={city}/>}
             </div>
           </Paper>  
         </Col>
