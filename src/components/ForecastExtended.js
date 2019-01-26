@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles.css';
 import ForecastItem from './ForecastItem';
 import {KEY, URL, URL_FORECAST} from './../constants/api_url';
+import transformForecast from './../services/transformForecast';
 
 /*const days =["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
 
@@ -27,12 +28,14 @@ class ForecastExtended extends Component {
           data => (data.json())
       ).then( weather_data =>{
           console.log(weather_data);
+          const forecastData = transformForecast(weather_data);
+          console.log(forecastData);
+          this.setState({forecastData});
       });
     }
     
 
     renderForecastItemDays() {
-        return "render items";
       //  days.map(day => (<ForecastItem key={day} weekDay={day} hour={10} data={data} />))
     }
     
