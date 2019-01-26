@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles.css';
 import ForecastItem from './ForecastItem';
+import {KEY, URL, URL_FORECAST} from './../constants/api_url';
 
 /*const days =["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
 
@@ -20,6 +21,16 @@ class ForecastExtended extends Component {
         };
     }
     
+    componentDidMount = () => {
+      const forecast_url=`${URL_FORECAST}?q=${this.props.city}&appid=${KEY}`;
+      fetch(forecast_url).then(
+          data => (data.json())
+      ).then( weather_data =>{
+          console.log(weather_data);
+      });
+    }
+    
+
     renderForecastItemDays() {
         return "render items";
       //  days.map(day => (<ForecastItem key={day} weekDay={day} hour={10} data={data} />))
