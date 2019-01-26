@@ -4,14 +4,6 @@ import ForecastItem from './ForecastItem';
 import {KEY, URL, URL_FORECAST} from './../constants/api_url';
 import transformForecast from './../services/transformForecast';
 
-/*const days =["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
-
-const data={
-    temperature: 10,
-    humidity: 5,
-    weatherState: 'normal',
-    wind: 'normal',
-}; */
 
 class ForecastExtended extends Component {
     
@@ -23,7 +15,7 @@ class ForecastExtended extends Component {
     }
     
     componentDidMount = () => {
-      const forecast_url=`${URL_FORECAST}?q=${this.props.city}&appid=${KEY}`;
+      const forecast_url=`${URL_FORECAST}?q=${this.props.city}&appid=${KEY}&units=metric`;
       fetch(forecast_url).then(
           data => (data.json())
       ).then( weather_data =>{
@@ -35,8 +27,12 @@ class ForecastExtended extends Component {
     }
     
 
-    renderForecastItemDays() {
-      //  days.map(day => (<ForecastItem key={day} weekDay={day} hour={10} data={data} />))
+    renderForecastItemDays(forecastData) {
+     return forecastData.map(forecast => (<ForecastItem 
+        key={`${forecast.weekDay}${forecast.hour}`} 
+        weekDay={forecast.weekDay} 
+        hour={forecast.hour}
+        data={forecast.data} />))
     }
     
     renderProgress = () => {
@@ -50,7 +46,7 @@ class ForecastExtended extends Component {
             <div>
                <h2 className="forecast-title"> Pronóstico Extendido para {city} </h2>
                 {forecastData ? 
-                this.renderForecastItemDays():
+                this.renderForecastItemDays(forecastData):
                 this.renderProgress()}
             </div>
         );
