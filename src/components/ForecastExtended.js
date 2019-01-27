@@ -15,16 +15,31 @@ class ForecastExtended extends Component {
     }
     
     componentDidMount = () => {
-      const forecast_url=`${URL_FORECAST}?q=${this.props.city}&appid=${KEY}&units=metric`;
-      fetch(forecast_url).then(
-          data => (data.json())
-      ).then( weather_data =>{
-          console.log(weather_data);
-          const forecastData = transformForecast(weather_data);
-          console.log(forecastData);
-          this.setState({forecastData});
-      });
+        this.updateCity(this.props.city);
     }
+
+    componentDidUpdate = prevProps => {
+        if(prevProps.city !== this.props.city){
+            console.log("prop de ciudad previa",prevProps.city);
+            console.log("prop de ciudad actual actualizada en el render",this.props.city);
+            this.setState({forecastData:null});
+            this.updateCity(this.props.city);//this.props.ciudad es la que vienen al hacer click y se actualiza cuando entra al render
+        }
+    }
+    
+    updateCity = city =>{
+        const forecast_url=`${URL_FORECAST}?q=${this.props.city}&appid=${KEY}&units=metric`;
+        fetch(forecast_url).then(
+            data => (data.json())
+        ).then( weather_data =>{
+            console.log(weather_data);
+            const forecastData = transformForecast(weather_data);
+            console.log(forecastData);
+            this.setState({forecastData});
+        });
+    }
+
+  
     
 
     renderForecastItemDays(forecastData) {

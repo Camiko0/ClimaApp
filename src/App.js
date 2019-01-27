@@ -10,10 +10,10 @@ import ForecastExtended from './components/ForecastExtended';
 
 const cities =  [
   'Munich',
-  'Londres',
+  'Bogota',
   'New York',
   'Barcelona',
-  'Mexico',
+  'Tokyo',
 ];
 
 
