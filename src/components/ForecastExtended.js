@@ -44,7 +44,7 @@ class ForecastExtended extends Component {
         const {forecastData}=this.state;
         return(
             <div>
-               <h2 className="forecast-title"> Pronóstico Extendido para {city} </h2>
+               <h3 className="forecast-title"> Pronóstico Extendido para {city} </h3>
                 {forecastData ? 
                 this.renderForecastItemDays(forecastData):
                 this.renderProgress()}

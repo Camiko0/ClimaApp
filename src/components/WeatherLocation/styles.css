@@ -5,6 +5,7 @@
     line-height: 55px;
     color: #888;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .locationCont h1{

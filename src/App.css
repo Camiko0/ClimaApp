@@ -1,6 +1,15 @@
 .details{
     background: #999;
-    /*height: 100vh;*/
-    width: 100%;
-   margin-top:15px;
+    height: 85vh;
+   /* width: calc(100% - 40px); */
+    overflow: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+@media (max-width: 64em){
+    .details{
+        height: 40vh!important;
+    }
 }
